@@ -18,6 +18,7 @@ public class SecurityConfig {
                 .csrf().disable() 
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers(HttpMethod.GET, "/bus").permitAll(); 
+                    auth.requestMatchers(HttpMethod.GET, "/bus/{id}").permitAll(); 
                     auth.requestMatchers(HttpMethod.POST, "/bus").permitAll(); 
                     auth.requestMatchers(HttpMethod.DELETE, "/bus/**").hasRole("USER"); 
                 })
